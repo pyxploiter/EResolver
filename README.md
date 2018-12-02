@@ -19,5 +19,5 @@ Open index.html file in your browser and search your query.</br></br>
 <img src="/screenshots/Screenshot%20from%202018-12-02%2000-30-17.png" width="800px" height="450px"></br></br>
 <img src="/screenshots/Screenshot%20from%202018-12-02%2000-30-38.png" width="800px" height="450px"></br></br>
 2. 2) For using EResolver in your python script:
-Run test.py file as a sample </br>
+Run test.py file as a sample </br> *'print 1/0' is a statement which gives an error and we caught exception using EResolver*</br></br>
 <img src="/screenshots/Screenshot%20from%202018-12-02%2000-52-37.png" width="800px" height="450px">
