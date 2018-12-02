@@ -4,7 +4,7 @@ print "====================> Eresolver <=========================="
 print "It helps you to find the suggestions to resolve your errors"
 print "==========================================================="
 print "Testing..."
-print "try to use module which is not defined:"
+print "try to use statement which gives error:"
 print "e.g. print 1/0\n"
 
 # def replace():
