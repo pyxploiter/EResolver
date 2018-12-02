@@ -16,8 +16,8 @@ You can use web app as well as you can use it into your python script.
 
 2. 1) For using webapp:
 Open index.html file in your browser and search your query.
-![web app1](https://github.com/xploiter-projects/EResolver/blob/master/screenshots/Screenshot%20from%202018-12-02%2000-30-17.png")
-![web app2]("https://github.com/xploiter-projects/EResolver/blob/master/screenshots/Screenshot%20from%202018-12-02%2000-30-38.png")
+![web app1](https://raw.githubusercontent.com/xploiter-projects/EResolver/master/screenshots/Screenshot%20from%202018-12-02%2000-30-17.png")
+![web app2]("https://raw.githubusercontent.com/xploiter-projects/EResolver/master/screenshots/Screenshot%20from%202018-12-02%2000-30-38.png")
 2. 2) For using EResolver in your python script:
 Run test.py file as a sample 
-![cli]("https://github.com/xploiter-projects/EResolver/blob/master/screenshots/Screenshot%20from%202018-12-02%2000-52-37.png")
+![cli]("https://raw.githubusercontent.com/xploiter-projects/EResolver/master/screenshots/Screenshot%20from%202018-12-02%2000-52-37.png")
