@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>EResolver | Home</title>
+
+		<!-- Font awesome -->
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+
+		<!-- Google Font -->
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/utils.js"></script>
+
+
+		<style type="text/css">
+			#chart-container {
+				width: 100%;
+				height: auto;
+			}
+
+			canvas{
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+			}
+            
+            .result{
+            margin: 20px 5px;
+            padding: 10px 5px;
+            background-color: #d1d1d1;
+            border-radius: 7px;
+            }
+            .result:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+            .stats{
+                width: 20%;
+                float: left;
+            }
+            .solution{
+                width: 80%;
+                float: left;
+            }
+            .stack-question1:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+            .stack-question2:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+            .question-rating1{
+                width: 20%;
+                float: left;
+            }
+            .question-rating2{
+                width: 20%;
+                float: left;
+            }
+            .question-heading1{
+                width: 80%;
+                float: left;
+            }
+            .question-heading2{
+                width: 80%;
+                float: left;
+            }
+		</style>
+</head>
+	<body>
+        
+		  <div class="jumbotron">
+            <div class="container">
+            <h1>EResolver</h1>      
+            <p>Search your Errors Here</p>
+            
+            <input type="text" placeholder="Search.." id="search" name="search">
+            <button id='submitButton' type="submit" value="Search">Search</button>
+            </div>
+		  </div>        
+
+        <div class="container">
+                
+            <h2 class="user-question"></h2>
+            <div class="row" style="padding: 10px 0px;">
+                <div class="col-sm-6">
+
+                            <div class="stack-question1">
+                                <div class="question-rating1">
+                                </div>                                
+                                <div class="question-heading1"><h3></h3></div>
+                            </div>
+                            <div class="results1"> 
+                            </div>
+                       
+                </div>
+                <div class="col-sm-6">
+                        <div class="stack-question2">
+                                <div class="question-rating2">
+                                </div>                                
+                                <div class="question-heading2"><h3></h3></div>
+                            </div>
+                            <div class="results2">
+                                
+                                
+                            </div> 
+                </div>  
+                
+            </div>
+        </div>
+    </body>
+    <script>
+$(document).ready(function() {
+    $( "#submitButton" ).click(function() {
+    query=$('#search').val();
+    $.ajax({
+        type: "GET",
+        url: "http://0.0.0.0:3000/"+query,
+        dataType : 'json',   //you may use jsonp for cross origin request
+        crossDomain:true,
+        success: function(response, status, xhr) {
+            $(".user-question").html("Query: "+response.query);
+            matchedSolutions=response.answers.length;
+            stackQuestions=response.answers;
+            // index 0, 1, max 2 answers
+
+            $(".question-rating1").html("Question:1<br>Votes: "+ stackQuestions[0].stack_question_vote);
+
+            $(".question-heading1").html( stackQuestions[0].stack_question_content);
+            answers_num=stackQuestions[0].stack_answers.length
+            answers=stackQuestions[0].stack_answers;
+
+            for(let i=0 ; i < answers_num;i++){
+                    $(".results1").append("<div class='result'><div class='stats'>Answer-"+(i+1)+"<br>Votes: "+ answers[i].answer_vote+" </div><div class='solution'>"+answers[i].answer_content+"</div>");
+            }
+
+            $(".question-rating2").html("Question:2<br>Votes: "+ stackQuestions[1].stack_question_vote);
+                        
+            $(".question-heading2").html( stackQuestions[1].stack_question_content);
+            answers_num=stackQuestions[1].stack_answers.length
+            answers=stackQuestions[1].stack_answers;
+            for(let i=0 ; i < answers_num;i++){
+                    $(".results2").append("<div class='result'><div class='stats'>Answer-"+(i+1)+"<br>Votes: "+ answers[i].answer_vote+" </div><div class='solution'>"+answers[i].answer_content+"</div>");
+            }
+             }});  
+    });
+
+});
+    
+    </script>
+</html>
