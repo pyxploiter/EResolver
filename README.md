@@ -1,6 +1,6 @@
 # EResolver
 
-EResolver is a kind of python exception handler which helps you to find the solution for your syntax error.
+EResolver is a python module (can be used as exception handler as well) which helps you to find the solution for your syntax error.
 
 ## Requirements
 1. BeautifulSoup
