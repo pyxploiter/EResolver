@@ -9,9 +9,9 @@ EResolver is a python module (can be used as exception handler as well) which he
 
 ## How to Run
 1. First, Run server.py on port 3000
-
+```shell
 $ python server.py 3000 
-
+```
 You can use web app as well as you can use it into your python script.
 
 2. 1) For using webapp:
